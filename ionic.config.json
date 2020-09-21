@@ -1,0 +1,7 @@
+{
+  "name": "vaja1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
