@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="loginBool">Login</ion-title>
+    <ion-title *ngIf="!loginBool">Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="loginBool" [formGroup]="loginForm">
+    <ion-item mode="md" class="myInputItem ion-margin">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item mode="md" class="myInputItem ion-margin">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+  </form>
+  <form *ngIf="!loginBool" [formGroup]="signupForm">
+    <ion-item mode="md" class="myInputItem ion-margin">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item mode="md" class="myInputItem ion-margin">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item mode="md" class="myInputItem ion-margin">
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input formControlName="passwordConfirm" type="password"></ion-input>
+    </ion-item>
+  </form>
+  <div *ngIf="loginBool" class="myBtns ion-text-center">
+    <ion-button class="mySwitchBtn" [disabled]="!loginForm.valid" (click)="login()">Login</ion-button>
+    <span class="switchSpan">Don't have an account yet? <a (click)="switch()">Sign Up</a></span>
+  </div>
+  <div *ngIf="!loginBool" class="myBtns ion-text-center">
+    <ion-button class="mySwitchBtn" [disabled]="!signupForm.valid" (click)="signup()">Sign In</ion-button>
+    <span class="switchSpan">Already have an account? <a (click)="switch()">Login</a></span>
+  </div>
+</ion-content>
