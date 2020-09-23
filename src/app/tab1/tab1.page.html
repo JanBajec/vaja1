@@ -1,11 +1,13 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title class="ion-text-center">
+      Package History
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <span>{{myModal.name}} {{myModal.surname}}</span>
+  <ion-button (click)="showModal()">Show Modal</ion-button>
 
 </ion-content>

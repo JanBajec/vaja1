@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {IonRouterOutlet, ModalController} from '@ionic/angular';
+import {TestComponent} from '../components/test/test.component';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  myModal = {
+    id: 1,
+    name: 'Jan',
+    surname: 'Bajec',
+  };
+
+  constructor(private modalCtrl: ModalController, private routerOutlet: IonRouterOutlet) {}
+
+  async showModal(){
+    const modal = await this.modalCtrl.create({
+      component: TestComponent,
+      componentProps: {
+        segment: this.myModal,
+      },
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl
+    });
+    await modal.present();
+  }
 
 }
