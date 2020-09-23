@@ -8,4 +8,18 @@
 
 <ion-content>
 
+  <ion-item>
+    <ion-input (keyup)="refresh(myRange.lower, myRange.upper)" type="number" [(ngModel)]="myRange.lower"></ion-input>
+    <ion-range [(ngModel)]="myRange" dualKnobs="true" min="21" max="72"></ion-range>
+    <ion-input type="number" [(ngModel)]="myRange.upper"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="refresh()"></ion-button>
+
 </ion-content>
+
+<!--<form [formGroup]="myForm">-->
+<!--  &lt;!&ndash;      <ion-input formControlName="range.lower" type="number"></ion-input>&ndash;&gt;-->
+<!--  <ion-range formControlName="range" dualKnobs="true" min="21" max="72"></ion-range>-->
+<!--  &lt;!&ndash;      <ion-input formControlName="range.upper" type="number" ></ion-input>&ndash;&gt;-->
+<!--</form>-->
